@@ -7,9 +7,9 @@ from importlib import import_module
 from yaml import load, FullLoader
 from openmdao.api import <%= @dimpl.implicit_component ? "ImplicitComponent" : "ExplicitComponent" %>
 
+
 class <%= @discipline.py_classname %>Base(<%= @dimpl.implicit_component ? "ImplicitComponent" : "ExplicitComponent" %>):
     """ An OpenMDAO base component to encapsulate <%= @discipline.py_classname %> discipline """
-
     def __init__(self, **kwargs):
         super(<%= @discipline.py_classname %>Base, self).__init__(**kwargs)
         self._impl = None
@@ -42,5 +42,3 @@ class <%= @discipline.py_classname %>Base(<%= @dimpl.implicit_component ? "Impli
 <% else -%>
     pass
 <% end -%>
-
-        
